@@ -19,6 +19,7 @@
     <ProjectReference Include="..\..\src\FhirMcp.Server\FhirMcp.Server.csproj" />
     <ProjectReference Include="..\..\tools\FhirMcp.Seed\FhirMcp.Seed.csproj" />
     <ProjectReference Include="..\..\src\FhirMcp.Agent\FhirMcp.Agent.csproj" />
+    <ProjectReference Include="..\..\evals\FhirMcp.Evals\FhirMcp.Evals.csproj" />
   </ItemGroup>
 
 </Project>

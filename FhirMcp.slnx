@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/evals/">
+    <Project Path="evals/FhirMcp.Evals/FhirMcp.Evals.csproj" />
+  </Folder>
   <Folder Name="/src/">
     <Project Path="src/FhirMcp.Agent/FhirMcp.Agent.csproj" />
     <Project Path="src/FhirMcp.Server/FhirMcp.Server.csproj" />

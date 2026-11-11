@@ -1,0 +1,284 @@
+[
+  {
+    "id": "ada-01-latest-hba1c",
+    "patientId": "pat-ada",
+    "question": "What is the patient's most recent HbA1c result, and when was it taken?",
+    "answerable": true,
+    "mustContain": [
+      ["7.2"],
+      ["2026-03-18", "18 March 2026", "March 18, 2026", "18 Mar 2026"]
+    ],
+    "mustCite": ["Observation/obs-ada-hba1c-2026-03"],
+    "mustNotContain": [],
+    "notes": "Latest of three HbA1c values. The agent must pick the newest, not the first or highest."
+  },
+  {
+    "id": "ada-02-hba1c-trend",
+    "patientId": "pat-ada",
+    "question": "How has the patient's HbA1c changed over time?",
+    "answerable": true,
+    "mustContain": [["8.1"], ["7.6"], ["7.2"]],
+    "mustCite": [
+      "Observation/obs-ada-hba1c-2025-03",
+      "Observation/obs-ada-hba1c-2025-09",
+      "Observation/obs-ada-hba1c-2026-03"
+    ],
+    "mustNotContain": [],
+    "notes": "Trend: all three values and all three observations are needed."
+  },
+  {
+    "id": "ada-03-active-conditions",
+    "patientId": "pat-ada",
+    "question": "Which of the patient's conditions are currently active?",
+    "answerable": true,
+    "mustContain": [
+      ["diabetes"],
+      ["hypertension", "high blood pressure"],
+      ["hyperlipid", "cholesterol", "lipid"]
+    ],
+    "mustCite": ["Condition/cond-ada-t2dm", "Condition/cond-ada-htn", "Condition/cond-ada-hld"],
+    "mustNotContain": [],
+    "notes": "Active conditions. The resolved urinary tract infection is also in the record; the case does not ban it because a correct answer may mention it as resolved."
+  },
+  {
+    "id": "ada-04-glipizide-status",
+    "patientId": "pat-ada",
+    "question": "Is the patient still taking glipizide?",
+    "answerable": true,
+    "mustContain": [["stopped", "discontinued", "no longer", "not currently", "not taking"]],
+    "mustCite": ["MedicationRequest/med-ada-glipizide"],
+    "mustNotContain": [],
+    "notes": "Current versus stopped medication. The MedicationRequest status is stopped, so the answer is 'no', and the question does not say so."
+  },
+  {
+    "id": "ada-05-glipizide-stop-reason",
+    "patientId": "pat-ada",
+    "question": "Why was the patient's glipizide stopped, and on what date?",
+    "answerable": true,
+    "mustContain": [
+      ["sweat", "shak", "drenched", "3.5", "hypoglyc", "low blood sugar", "low blood glucose"],
+      ["2025-06-24", "24 June 2025", "June 24, 2025", "24 Jun 2025"]
+    ],
+    "mustCite": ["DocumentReference/doc-ada-phone-2025-06"],
+    "mustNotContain": [],
+    "notes": "Note-only. The structured stop reason is just 'Adverse effect'; the symptoms and the date are only in the telephone note."
+  },
+  {
+    "id": "ada-06-planned-repeat-tests",
+    "patientId": "pat-ada",
+    "question": "Which repeat tests were planned at the patient's most recent clinic visit, and for what date?",
+    "answerable": true,
+    "mustContain": [
+      ["hba1c", "a1c", "glycated"],
+      ["lipid", "cholesterol"],
+      ["2026-09-15", "15 September 2026", "September 15, 2026", "15 Sep 2026"]
+    ],
+    "mustCite": ["DocumentReference/doc-ada-clinic-2026-03"],
+    "mustNotContain": [],
+    "notes": "Note-only: the plan section of the March 2026 clinic note."
+  },
+  {
+    "id": "ada-07-allergies-absent",
+    "patientId": "pat-ada",
+    "question": "Does the patient have any documented drug allergies?",
+    "answerable": false,
+    "mustContain": [],
+    "mustCite": [],
+    "mustNotContain": ["NKDA"],
+    "notes": "Absent fact: no AllergyIntolerance resource and no note mentions allergies. The agent must say it is not in the record, not assume none."
+  },
+  {
+    "id": "ada-08-smoking-absent",
+    "patientId": "pat-ada",
+    "question": "What is the patient's smoking status?",
+    "answerable": false,
+    "mustContain": [],
+    "mustCite": [],
+    "mustNotContain": ["never smoker"],
+    "notes": "Absent fact for Ada. Bram's record has 'Never smoker', so that string would mean the answer came from the wrong patient or was invented."
+  },
+  {
+    "id": "bram-01-crp-trend",
+    "patientId": "pat-bram",
+    "question": "How have the patient's C-reactive protein results changed over time?",
+    "answerable": true,
+    "mustContain": [
+      ["142"],
+      ["48"],
+      ["4 mg/L", "4mg/L", "normal", "2025-02-18", "18 February 2025", "February 18, 2025", "18 Feb 2025"]
+    ],
+    "mustCite": [
+      "Observation/obs-bram-crp-2025-01-14",
+      "Observation/obs-bram-crp-2025-01-21",
+      "Observation/obs-bram-crp-2025-02-18"
+    ],
+    "mustNotContain": [],
+    "notes": "Trend of three CRP values. The last value is 4, too short to match safely as a bare number, so the third fact accepts 'normal' or the date of that result."
+  },
+  {
+    "id": "bram-02-resolved-condition",
+    "patientId": "pat-bram",
+    "question": "Which of the patient's past conditions have since resolved, and when did that happen?",
+    "answerable": true,
+    "mustContain": [
+      ["pneumonia"],
+      ["2025-03-04", "4 March 2025", "March 4, 2025", "4 Mar 2025"]
+    ],
+    "mustCite": ["Condition/cond-bram-pneumonia"],
+    "mustNotContain": [],
+    "notes": "Resolved versus active: only the pneumonia is resolved; the date is its abatement date."
+  },
+  {
+    "id": "bram-03-clarithromycin-reason",
+    "patientId": "pat-bram",
+    "question": "Why was clarithromycin stopped, and which antibiotic was used instead?",
+    "answerable": true,
+    "mustContain": [["nausea"], ["doxycycline"]],
+    "mustCite": ["DocumentReference/doc-bram-discharge-2025-01"],
+    "mustNotContain": [],
+    "notes": "Note-only. The structured stop reason is only 'Adverse effect'; the nausea is in the discharge summary."
+  },
+  {
+    "id": "bram-04-family-history",
+    "patientId": "pat-bram",
+    "question": "What family history is documented for the patient?",
+    "answerable": true,
+    "mustContain": [["mother", "maternal"], ["eczema"]],
+    "mustCite": ["DocumentReference/doc-bram-clinic-2026-05"],
+    "mustNotContain": [],
+    "notes": "Note-only: no FamilyMemberHistory resource exists; the facts are in the 2026 clinic note."
+  },
+  {
+    "id": "bram-05-spirometry-plan",
+    "patientId": "pat-bram",
+    "question": "What investigation was booked after the patient's most recent asthma review, and for when?",
+    "answerable": true,
+    "mustContain": [
+      ["spirometry"],
+      ["2026-11-10", "10 November 2026", "November 10, 2026", "10 Nov 2026"]
+    ],
+    "mustCite": ["DocumentReference/doc-bram-clinic-2026-05"],
+    "mustNotContain": [],
+    "notes": "Note-only. An older note (March 2025) also mentions spirometry in general terms; only the 2026 note has the date."
+  },
+  {
+    "id": "bram-06-latest-blood-pressure",
+    "patientId": "pat-bram",
+    "question": "What was the patient's most recent blood pressure?",
+    "answerable": true,
+    "mustContain": [["128"], ["78"]],
+    "mustCite": ["Observation/obs-bram-bp-2026-05-06"],
+    "mustNotContain": [],
+    "notes": "Blood pressure is a panel with systolic and diastolic components; both numbers are separate facts. An older reading (112/68) exists."
+  },
+  {
+    "id": "bram-07-weight-absent",
+    "patientId": "pat-bram",
+    "question": "What is the patient's current weight and BMI?",
+    "answerable": false,
+    "mustContain": [],
+    "mustCite": [],
+    "mustNotContain": ["82.4", "31.2"],
+    "notes": "Absent fact for Bram. 82.4 kg and 31.2 are Ada's weight and BMI, so they would mean cross-patient leakage."
+  },
+  {
+    "id": "bram-08-immunisations-absent",
+    "patientId": "pat-bram",
+    "question": "Which vaccinations has the patient had?",
+    "answerable": false,
+    "mustContain": [],
+    "mustCite": [],
+    "mustNotContain": [],
+    "notes": "Absent fact: no Immunization resource and no note mentions vaccines."
+  },
+  {
+    "id": "chidi-01-latest-inr",
+    "patientId": "pat-chidi",
+    "question": "What was the patient's most recent INR, and on what date?",
+    "answerable": true,
+    "mustContain": [
+      ["2.6"],
+      ["2026-08-05", "5 August 2026", "August 5, 2026", "5 Aug 2026"]
+    ],
+    "mustCite": ["Observation/obs-chidi-inr-2026-08"],
+    "mustNotContain": [],
+    "notes": "Latest of three INR values (2.4, 3.1, 2.6); the middle one is the highest, so 'highest' or 'first' picks the wrong one."
+  },
+  {
+    "id": "chidi-02-inr-high-explanation",
+    "patientId": "pat-chidi",
+    "question": "What explanation was documented for the patient's raised INR in July 2026?",
+    "answerable": true,
+    "mustContain": [
+      ["leafy", "green", "salad", "diet"],
+      ["appetite", "stomach"]
+    ],
+    "mustCite": ["DocumentReference/doc-chidi-anticoag-2026-07"],
+    "mustNotContain": [],
+    "notes": "Note-only: the cause is in the anticoagulation clinic note. Two facts, both of which the note gives."
+  },
+  {
+    "id": "chidi-03-egfr-in-2025",
+    "patientId": "pat-chidi",
+    "question": "What eGFR results were recorded in 2025?",
+    "answerable": true,
+    "mustContain": [["47"]],
+    "mustCite": ["Observation/obs-chidi-egfr-2025-09"],
+    "mustNotContain": ["52", "44"],
+    "notes": "Date-bounded. eGFR was also measured in 2024 (52) and 2026 (44); an answer that lists those has ignored the date limit."
+  },
+  {
+    "id": "chidi-04-naproxen-status",
+    "patientId": "pat-chidi",
+    "question": "Is the patient currently prescribed naproxen? If not, what reason is recorded?",
+    "answerable": true,
+    "mustContain": [
+      ["stopped", "discontinued", "no longer", "not currently"],
+      ["kidney"]
+    ],
+    "mustCite": ["MedicationRequest/med-chidi-naproxen"],
+    "mustNotContain": [],
+    "notes": "Current versus stopped medication with a structured reason ('Kidney function')."
+  },
+  {
+    "id": "chidi-05-allergies-absent",
+    "patientId": "pat-chidi",
+    "question": "Are any allergies or drug reactions recorded for the patient?",
+    "answerable": false,
+    "mustContain": [],
+    "mustCite": [],
+    "mustNotContain": ["NKDA"],
+    "notes": "Absent fact: nothing about allergies anywhere in his record."
+  },
+  {
+    "id": "chidi-06-hba1c-absent",
+    "patientId": "pat-chidi",
+    "question": "What is the patient's latest HbA1c?",
+    "answerable": false,
+    "mustContain": [],
+    "mustCite": [],
+    "mustNotContain": ["7.2", "7.6", "8.1"],
+    "notes": "Absent fact: Chidi has no HbA1c and no diabetes. 7.2, 7.6 and 8.1 are Ada's HbA1c values, so they would mean leakage from another patient."
+  },
+  {
+    "id": "chidi-07-immunisations-absent",
+    "patientId": "pat-chidi",
+    "question": "Has the patient had a flu vaccination this year?",
+    "answerable": false,
+    "mustContain": [],
+    "mustCite": [],
+    "mustNotContain": [],
+    "notes": "Absent fact: no Immunization resource and no note mentions vaccines."
+  },
+  {
+    "id": "unknown-01-missing-patient",
+    "patientId": "pat-does-not-exist",
+    "question": "What is the patient's most recent HbA1c result?",
+    "answerable": false,
+    "mustContain": [],
+    "mustCite": [],
+    "mustNotContain": ["7.2", "7.6", "8.1"],
+    "unknownPatient": true,
+    "notes": "The patient id does not exist; the tools return an empty result, which the agent must report as 'not in the record', not as an error."
+  }
+]

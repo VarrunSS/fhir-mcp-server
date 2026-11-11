@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Copied next to the built assembly so the runner finds its default cases file. -->
+    <None Include="cases.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\FhirMcp.Agent\FhirMcp.Agent.csproj" />
+    <!-- Same reason as in the agent project: this puts FhirMcp.Server.dll (and its runtimeconfig) next to
+         the eval runner, so McpServerLauncher can start the real server from here. -->
+    <ProjectReference Include="..\..\src\FhirMcp.Server\FhirMcp.Server.csproj" />
+  </ItemGroup>
+
+</Project>
