@@ -1,0 +1,124 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+# A newer push to the same branch or pull request replaces the run still in progress.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    services:
+      # Same image tag and setting as docker-compose.yml. The search cache is turned off
+      # because a cached "0 results" from before seeding would hide the seeded data.
+      hapi:
+        image: hapiproject/hapi:v8.12.0-2
+        ports:
+          - 8080:8080
+        env:
+          HAPI_FHIR_REUSE_CACHED_SEARCH_RESULTS_MILLIS: "-1"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build -c Release --no-restore
+
+      # Fast unit tests first: a plain bug fails here without waiting for HAPI to start.
+      - name: Unit tests
+        run: dotnet test -c Release --no-build --filter "Category!=Integration"
+
+      # The seed tool polls HAPI until it answers (HAPI takes a minute or two to start).
+      - name: Seed HAPI
+        run: dotnet run -c Release --no-build --project tools/FhirMcp.Seed -- --wait-seconds 300
+
+      - name: All tests
+        run: dotnet test -c Release --no-build
+
+  evals:
+    needs: build-test
+    # Pull requests from forks never receive repository secrets, so skip them outright.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    services:
+      hapi:
+        image: hapiproject/hapi:v8.12.0-2
+        ports:
+          - 8080:8080
+        env:
+          HAPI_FHIR_REUSE_CACHED_SEARCH_RESULTS_MILLIS: "-1"
+
+    steps:
+      # `secrets` cannot be used in a job-level `if`, so check it here. The comparison yields
+      # only "true" or "false"; the key itself is never written anywhere.
+      - name: Check for ANTHROPIC_API_KEY
+        id: key
+        env:
+          HAS_KEY: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+        run: |
+          echo "has_key=$HAS_KEY" >> "$GITHUB_OUTPUT"
+          if [ "$HAS_KEY" != "true" ]; then
+            echo "Evals skipped: ANTHROPIC_API_KEY is not set" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.key.outputs.has_key == 'true'
+
+      - uses: actions/setup-dotnet@v4
+        if: steps.key.outputs.has_key == 'true'
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restore
+        if: steps.key.outputs.has_key == 'true'
+        run: dotnet restore
+
+      - name: Build
+        if: steps.key.outputs.has_key == 'true'
+        run: dotnet build -c Release --no-restore
+
+      - name: Seed HAPI
+        if: steps.key.outputs.has_key == 'true'
+        run: dotnet run -c Release --no-build --project tools/FhirMcp.Seed -- --wait-seconds 300
+
+      - name: Run evals
+        if: steps.key.outputs.has_key == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          set -o pipefail
+          status=0
+          dotnet run -c Release --no-build --project evals/FhirMcp.Evals -- --out eval-results.json 2>&1 | tee eval-output.txt || status=$?
+          {
+            echo "### Eval results"
+            echo '```'
+            grep -E '^(Score:|RESULT:)' eval-output.txt || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
+
+      - name: Upload eval results
+        if: always() && steps.key.outputs.has_key == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-results
+          path: eval-results.json
+          if-no-files-found: warn
