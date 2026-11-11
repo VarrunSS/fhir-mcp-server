@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/src/">
+    <Project Path="src/FhirMcp.Agent/FhirMcp.Agent.csproj" />
     <Project Path="src/FhirMcp.Server/FhirMcp.Server.csproj" />
   </Folder>
   <Folder Name="/tests/">

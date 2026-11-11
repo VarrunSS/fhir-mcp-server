@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Anthropic" Version="13.8.0" />
+    <PackageReference Include="ModelContextProtocol" Version="2.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Not for its code: referencing the server project makes the build copy FhirMcp.Server.dll,
+         its runtimeconfig/deps and appsettings.json next to the agent, so McpServerLauncher can start it. -->
+    <ProjectReference Include="..\FhirMcp.Server\FhirMcp.Server.csproj" />
+  </ItemGroup>
+
+</Project>
