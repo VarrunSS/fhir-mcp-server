@@ -1,0 +1,13 @@
+# Local HAPI FHIR R4 server for development and the integration tests.
+# The tag is pinned on purpose: the integration tests assert on HAPI's search behaviour,
+# so an unannounced upgrade must not change it. Data lives in the container (H2 in memory),
+# so `docker compose down` followed by `up` starts empty; run the seed tool again.
+services:
+  hapi:
+    image: hapiproject/hapi:v8.12.0-2
+    ports:
+      - "8080:8080"
+    environment:
+      # HAPI caches identical searches for 60 seconds by default. A search that ran before
+      # seeding would keep answering "0 results" afterwards, so turn the cache off.
+      HAPI_FHIR_REUSE_CACHED_SEARCH_RESULTS_MILLIS: "-1"

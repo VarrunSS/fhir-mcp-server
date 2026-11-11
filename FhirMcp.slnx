@@ -5,4 +5,7 @@
   <Folder Name="/tests/">
     <Project Path="tests/FhirMcp.Tests/FhirMcp.Tests.csproj" />
   </Folder>
+  <Folder Name="/tools/">
+    <Project Path="tools/FhirMcp.Seed/FhirMcp.Seed.csproj" />
+  </Folder>
 </Solution>

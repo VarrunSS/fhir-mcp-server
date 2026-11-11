@@ -1,0 +1,1265 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "pat-ada",
+        "identifier": [
+          {
+            "system": "urn:example:mrn",
+            "value": "MRN-1001"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Quillfeather",
+            "given": [
+              "Ada"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1961-04-12",
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/pat-ada"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-ada-t2dm",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "44054006",
+              "display": "Type 2 diabetes mellitus"
+            }
+          ],
+          "text": "Type 2 diabetes mellitus"
+        },
+        "subject": {
+          "reference": "Patient/pat-ada"
+        },
+        "onsetDateTime": "2019-05-14",
+        "recordedDate": "2019-05-14",
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/cond-ada-t2dm"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-ada-htn",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "38341003",
+              "display": "Hypertension"
+            }
+          ],
+          "text": "Hypertension"
+        },
+        "subject": {
+          "reference": "Patient/pat-ada"
+        },
+        "onsetDateTime": "2019-05-14",
+        "recordedDate": "2019-06-02",
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/cond-ada-htn"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-ada-hld",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "55822004",
+              "display": "Hyperlipidaemia"
+            }
+          ],
+          "text": "Hyperlipidaemia"
+        },
+        "subject": {
+          "reference": "Patient/pat-ada"
+        },
+        "onsetDateTime": "2020-02-10",
+        "recordedDate": "2020-02-10",
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/cond-ada-hld"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-ada-uti",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "resolved"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "68566005",
+              "display": "Urinary tract infection"
+            }
+          ],
+          "text": "Urinary tract infection"
+        },
+        "subject": {
+          "reference": "Patient/pat-ada"
+        },
+        "onsetDateTime": "2024-02-05",
+        "recordedDate": "2024-02-06",
+        "abatementDateTime": "2024-02-23",
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/cond-ada-uti"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-ada-hba1c-2025-03",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ],
+          "text": "HbA1c"
+        },
+        "subject": {
+          "reference": "Patient/pat-ada"
+        },
+        "effectiveDateTime": "2025-03-12",
+        "valueQuantity": {
+          "value": 8.1,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 4.0,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            },
+            "high": {
+              "value": 5.6,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            }
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ],
+            "text": "High"
+          }
+        ],
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-ada-hba1c-2025-03"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-ada-hba1c-2025-09",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ],
+          "text": "HbA1c"
+        },
+        "subject": {
+          "reference": "Patient/pat-ada"
+        },
+        "effectiveDateTime": "2025-09-10",
+        "valueQuantity": {
+          "value": 7.6,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 4.0,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            },
+            "high": {
+              "value": 5.6,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            }
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ],
+            "text": "High"
+          }
+        ],
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-ada-hba1c-2025-09"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-ada-hba1c-2026-03",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ],
+          "text": "HbA1c"
+        },
+        "subject": {
+          "reference": "Patient/pat-ada"
+        },
+        "effectiveDateTime": "2026-03-18",
+        "valueQuantity": {
+          "value": 7.2,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 4.0,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            },
+            "high": {
+              "value": 5.6,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            }
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ],
+            "text": "High"
+          }
+        ],
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-ada-hba1c-2026-03"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-ada-bp-2025-09",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel"
+            }
+          ],
+          "text": "Blood pressure"
+        },
+        "subject": {
+          "reference": "Patient/pat-ada"
+        },
+        "effectiveDateTime": "2025-09-10",
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ],
+            "text": "High"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ],
+              "text": "Systolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 142,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ],
+              "text": "Diastolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 88,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ],
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-ada-bp-2025-09"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-ada-bp-2026-03",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel"
+            }
+          ],
+          "text": "Blood pressure"
+        },
+        "subject": {
+          "reference": "Patient/pat-ada"
+        },
+        "effectiveDateTime": "2026-03-18",
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ],
+            "text": "High"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ],
+              "text": "Systolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 138,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ],
+              "text": "Diastolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 84,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ],
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-ada-bp-2026-03"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-ada-ldl-2026-03",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "13457-7",
+              "display": "LDL cholesterol (calculated)"
+            }
+          ],
+          "text": "LDL cholesterol"
+        },
+        "subject": {
+          "reference": "Patient/pat-ada"
+        },
+        "effectiveDateTime": "2026-03-18",
+        "valueQuantity": {
+          "value": 2.4,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        },
+        "referenceRange": [
+          {
+            "high": {
+              "value": 3.0,
+              "unit": "mmol/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "mmol/L"
+            }
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ],
+            "text": "Normal"
+          }
+        ],
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-ada-ldl-2026-03"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-ada-egfr-2026-03",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "33914-3",
+              "display": "eGFR (MDRD)"
+            }
+          ],
+          "text": "eGFR"
+        },
+        "subject": {
+          "reference": "Patient/pat-ada"
+        },
+        "effectiveDateTime": "2026-03-18",
+        "valueQuantity": {
+          "value": 78,
+          "unit": "mL/min/1.73m2",
+          "system": "http://unitsofmeasure.org",
+          "code": "mL/min/1.73m2"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 60,
+              "unit": "mL/min/1.73m2",
+              "system": "http://unitsofmeasure.org",
+              "code": "mL/min/1.73m2"
+            }
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ],
+            "text": "Normal"
+          }
+        ],
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-ada-egfr-2026-03"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-ada-glucose-2026-03",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1558-6",
+              "display": "Fasting glucose"
+            }
+          ],
+          "text": "Fasting glucose"
+        },
+        "subject": {
+          "reference": "Patient/pat-ada"
+        },
+        "effectiveDateTime": "2026-03-18",
+        "valueQuantity": {
+          "value": 7.4,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 3.9,
+              "unit": "mmol/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "mmol/L"
+            },
+            "high": {
+              "value": 5.5,
+              "unit": "mmol/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "mmol/L"
+            }
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ],
+            "text": "High"
+          }
+        ],
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-ada-glucose-2026-03"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-ada-weight-2026-03",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "29463-7",
+              "display": "Body weight"
+            }
+          ],
+          "text": "Body weight"
+        },
+        "subject": {
+          "reference": "Patient/pat-ada"
+        },
+        "effectiveDateTime": "2026-03-18",
+        "valueQuantity": {
+          "value": 82.4,
+          "unit": "kg",
+          "system": "http://unitsofmeasure.org",
+          "code": "kg"
+        },
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-ada-weight-2026-03"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-ada-bmi-2026-03",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "39156-5",
+              "display": "Body mass index"
+            }
+          ],
+          "text": "BMI"
+        },
+        "subject": {
+          "reference": "Patient/pat-ada"
+        },
+        "effectiveDateTime": "2026-03-18",
+        "valueQuantity": {
+          "value": 31.2,
+          "unit": "kg/m2",
+          "system": "http://unitsofmeasure.org",
+          "code": "kg/m2"
+        },
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-ada-bmi-2026-03"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "med-ada-metformin",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Metformin 1000 mg tablet"
+        },
+        "subject": {
+          "reference": "Patient/pat-ada"
+        },
+        "authoredOn": "2019-06-02",
+        "dosageInstruction": [
+          {
+            "text": "1000 mg by mouth twice daily with meals"
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Type 2 diabetes"
+          }
+        ],
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationRequest/med-ada-metformin"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "med-ada-lisinopril",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Lisinopril 10 mg tablet"
+        },
+        "subject": {
+          "reference": "Patient/pat-ada"
+        },
+        "authoredOn": "2019-06-02",
+        "dosageInstruction": [
+          {
+            "text": "10 mg by mouth once daily in the morning"
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hypertension"
+          }
+        ],
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationRequest/med-ada-lisinopril"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "med-ada-atorvastatin",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Atorvastatin 20 mg tablet"
+        },
+        "subject": {
+          "reference": "Patient/pat-ada"
+        },
+        "authoredOn": "2020-02-10",
+        "dosageInstruction": [
+          {
+            "text": "20 mg by mouth once daily at night"
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hyperlipidaemia"
+          }
+        ],
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationRequest/med-ada-atorvastatin"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "med-ada-glipizide",
+        "status": "stopped",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Glipizide 5 mg tablet"
+        },
+        "subject": {
+          "reference": "Patient/pat-ada"
+        },
+        "authoredOn": "2021-08-20",
+        "dosageInstruction": [
+          {
+            "text": "5 mg by mouth once daily with the evening meal"
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Type 2 diabetes"
+          }
+        ],
+        "statusReason": {
+          "text": "Adverse effect"
+        },
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationRequest/med-ada-glipizide"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-ada-clinic-2026-03",
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11488-4",
+              "display": "Consult note"
+            }
+          ],
+          "text": "Clinic note"
+        },
+        "subject": {
+          "reference": "Patient/pat-ada"
+        },
+        "date": "2026-03-18",
+        "author": [
+          {
+            "display": "Dr Marisol Pennywhistle"
+          }
+        ],
+        "description": "Six-monthly diabetes and cardiovascular review",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "data": "Q0xJTklDIE5PVEUgLSBEaWFiZXRlcyBhbmQgY2FyZGlvdmFzY3VsYXIgcmV2aWV3CkRhdGU6IDIwMjYtMDMtMTgKQ2xpbmljaWFuOiBEciBNYXJpc29sIFBlbm55d2hpc3RsZQoKTXMgUXVpbGxmZWF0aGVyIGF0dGVuZHMgZm9yIGhlciBzaXgtbW9udGhseSByZXZpZXcuIFNoZSBmZWVscyB3ZWxsIGluIGdlbmVyYWwgYW5kIGhlciBlbmVyZ3kgaXMgZ29vZC4gU2hlIHJlcG9ydHMgYW4gb2NjYXNpb25hbCB0aW5nbGluZyBzZW5zYXRpb24gaW4gYm90aCBmZWV0LCBtb3N0bHkgaW4gdGhlIGV2ZW5pbmcsIHdoaWNoIGhhcyBiZWVuIHByZXNlbnQgZm9yIHJvdWdobHkgdHdvIG1vbnRocyBhbmQgZG9lcyBub3Qgd2FrZSBoZXIgYXQgbmlnaHQuIFNoZSBoYXMgbm90IG5vdGljZWQgYW55IGZvb3Qgc29yZXMuCgpIb21lIGJsb29kIHByZXNzdXJlIHJlYWRpbmdzIG92ZXIgdGhlIHBhc3QgbW9udGggaGF2ZSBhdmVyYWdlZCBhcm91bmQgMTM1IG92ZXIgODIuIEhlciBIYkExYyB0b2RheSBpcyA3LjIgcGVyY2VudCwgaW1wcm92ZWQgYWdhaW4gZnJvbSB0aGUgYXV0dW1uIHJlc3VsdCwgYW5kIGhlciBMREwgY2hvbGVzdGVyb2wgaXMgYXQgdGFyZ2V0IG9uIGF0b3J2YXN0YXRpbi4gS2lkbmV5IGZ1bmN0aW9uIGlzIHN0YWJsZS4KCkZhbWlseSBoaXN0b3J5OiBoZXIgZmF0aGVyIGhhZCBhIGhlYXJ0IGF0dGFjayBhdCB0aGUgYWdlIG9mIDU0LCBhbmQgaGVyIG9sZGVyIHNpc3RlciBoYXMgdHlwZSAyIGRpYWJldGVzLiBUaGlzIHdhcyBkaXNjdXNzZWQgaW4gdGhlIGNvbnRleHQgb2YgaGVyIG93biBjYXJkaW92YXNjdWxhciByaXNrIGFuZCBzaGUgaXMga2VlbiB0byBrZWVwIGhlciBudW1iZXJzIGluIHJhbmdlLgoKRXhhbWluYXRpb246IHB1bHNlIHJlZ3VsYXIsIGZlZXQgd2FybSB3aXRoIHBhbHBhYmxlIHB1bHNlcywgbGlnaHQtdG91Y2ggc2Vuc2F0aW9uIHNsaWdodGx5IHJlZHVjZWQgb3ZlciB0aGUgdG9lcyBiaWxhdGVyYWxseS4KClBsYW46IGNvbnRpbnVlIG1ldGZvcm1pbiwgbGlzaW5vcHJpbCBhbmQgYXRvcnZhc3RhdGluIHVuY2hhbmdlZC4gQXJyYW5nZSBhIGZvcm1hbCBmb290IHNlbnNhdGlvbiBjaGVjayB3aXRoIHRoZSBwb2RpYXRyeSB0ZWFtIHdpdGhpbiB0aGUgbmV4dCB0d28gbW9udGhzLiBSZXBlYXQgSGJBMWMgb24gMjAyNi0wOS0xNSB3aXRoIGEgZmFzdGluZyBsaXBpZCBwYW5lbCBhdCB0aGUgc2FtZSB2aXNpdC4gUmVpbmZvcmNlZCB0aGUgZGlldGl0aWFuJ3MgYWR2aWNlIG9uIHBvcnRpb24gc2l6ZXMuIFJldmlldyBpbiBjbGluaWMgaW4gc2l4IG1vbnRocywgc29vbmVyIGlmIHRoZSB0aW5nbGluZyBzcHJlYWRzIG9yIHdvcnNlbnMu"
+            }
+          }
+        ],
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DocumentReference/doc-ada-clinic-2026-03"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-ada-discharge-2024-02",
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18842-5",
+              "display": "Discharge summary"
+            }
+          ],
+          "text": "Discharge summary"
+        },
+        "subject": {
+          "reference": "Patient/pat-ada"
+        },
+        "date": "2024-02-09",
+        "author": [
+          {
+            "display": "Dr Ignatius Fernsby"
+          }
+        ],
+        "description": "Discharge summary after admission with urinary tract infection",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "data": "RElTQ0hBUkdFIFNVTU1BUlkKQWRtaXR0ZWQ6IDIwMjQtMDItMDYgICBEaXNjaGFyZ2VkOiAyMDI0LTAyLTA5CkNvbnN1bHRhbnQ6IERyIElnbmF0aXVzIEZlcm5zYnksIEdlbmVyYWwgTWVkaWNpbmUKClJlYXNvbiBmb3IgYWRtaXNzaW9uOiBmZXZlciBhbmQgbG9pbiBwYWluIHdpdGggYSB1cmluYXJ5IHRyYWN0IGluZmVjdGlvbiB0aGF0IGRpZCBub3Qgc2V0dGxlIG9uIG9yYWwgdHJlYXRtZW50IGF0IGhvbWUuCgpDb3Vyc2U6IE1zIFF1aWxsZmVhdGhlciB3YXMgYWRtaXR0ZWQgZnJvbSB0aGUgZW1lcmdlbmN5IGRlcGFydG1lbnQgd2l0aCBhIHRlbXBlcmF0dXJlIG9mIDM4LjYgZGVncmVlcyBhbmQgcGFpbiBpbiB0aGUgcmlnaHQgZmxhbmsuIFVyaW5lIGN1bHR1cmUgZ3JldyBhIHNlbnNpdGl2ZSBvcmdhbmlzbS4gU2hlIHdhcyB0cmVhdGVkIHdpdGggaW50cmF2ZW5vdXMgYW50aWJpb3RpY3MgZm9yIHR3byBkYXlzIGFuZCB0aGVuIHN3aXRjaGVkIHRvIGFuIG9yYWwgY291cnNlIHRvIGNvbXBsZXRlIHNldmVuIGRheXMgaW4gdG90YWwuIEJsb29kIHRlc3RzIHNob3dlZCBhIHJhaXNlZCB3aGl0ZSBjZWxsIGNvdW50IHRoYXQgbm9ybWFsaXNlZCBiZWZvcmUgZGlzY2hhcmdlLiBIZXIga2lkbmV5IGZ1bmN0aW9uIHdhcyBicmllZmx5IHJlZHVjZWQgb24gYWRtaXNzaW9uIGFuZCByZXR1cm5lZCB0byBoZXIgdXN1YWwgbGV2ZWwgYnkgZGF5IHRocmVlLiBCbG9vZCBzdWdhcnMgcmFuIHNsaWdodGx5IGhpZ2ggd2hpbGUgc2hlIHdhcyB1bndlbGwgYW5kIHNldHRsZWQgb25jZSB0aGUgaW5mZWN0aW9uIHdhcyBjb250cm9sbGVkLgoKQ29uZGl0aW9uIGF0IGRpc2NoYXJnZTogYWZlYnJpbGUsIGVhdGluZyBhbmQgZHJpbmtpbmcgbm9ybWFsbHksIHdhbGtpbmcgaW5kZXBlbmRlbnRseS4KCkRpc2NoYXJnZSBwbGFuOiBjb21wbGV0ZSB0aGUgb3JhbCBhbnRpYmlvdGljIGNvdXJzZS4gQ29udGludWUgdXN1YWwgbG9uZy10ZXJtIG1lZGljaW5lcy4gRHJpbmsgcGxlbnR5IG9mIGZsdWlkcy4gSGVyIG93biBkb2N0b3IgdG8gcmVwZWF0IGEgdXJpbmUgdGVzdCBpbiB0d28gd2Vla3MgdG8gY29uZmlybSB0aGUgaW5mZWN0aW9uIGhhcyBjbGVhcmVkLiBSZXR1cm4gaWYgZmV2ZXIsIHZvbWl0aW5nIG9yIGZsYW5rIHBhaW4gcmVjdXJzLg=="
+            }
+          }
+        ],
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DocumentReference/doc-ada-discharge-2024-02"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-ada-phone-2025-06",
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "34748-4",
+              "display": "Telephone encounter Note"
+            }
+          ],
+          "text": "Telephone note"
+        },
+        "subject": {
+          "reference": "Patient/pat-ada"
+        },
+        "date": "2025-06-24",
+        "author": [
+          {
+            "display": "Wilhelmina Harkbeam, NP"
+          }
+        ],
+        "description": "Telephone follow-up about early-morning low sugar readings",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "data": "VEVMRVBIT05FIE5PVEUKRGF0ZTogMjAyNS0wNi0yNApDbGluaWNpYW46IE51cnNlIHByYWN0aXRpb25lciBXaWxoZWxtaW5hIEhhcmtiZWFtCgpTcG9rZSB3aXRoIE1zIFF1aWxsZmVhdGhlciBieSBwaG9uZSBhYm91dCBoZXIgbW9ybmluZyBzdWdhciByZWFkaW5ncy4gU2hlIGRlc2NyaWJlZCB0aHJlZSBlcGlzb2RlcyBvdmVyIHRoZSBwYXN0IHNpeCB3ZWVrcyBvZiB3YWtpbmcgZHJlbmNoZWQgaW4gc3dlYXQgYXQgYXJvdW5kIGZvdXIgaW4gdGhlIG1vcm5pbmcgd2l0aCBzaGFraW5lc3MsIGFuZCB0d28gaG9tZSBtZXRlciByZWFkaW5ncyBiZWxvdyAzLjUgbW1vbC9MIG9uIHRob3NlIG1vcm5pbmdzLiBTaGUgdHJlYXRlZCB0aGVtIHdpdGgganVpY2UgYW5kIHJlY292ZXJlZCB3aXRoaW4gZmlmdGVlbiBtaW51dGVzLiBUaGVyZSB3YXMgbm8gbG9zcyBvZiBjb25zY2lvdXNuZXNzIGFuZCBubyBmYWxscy4KClRoZXNlIGVwaXNvZGVzIGJlZ2FuIGFmdGVyIHRoZSBldmVuaW5nIGRvc2Ugb2YgZ2xpcGl6aWRlIHdhcyBpbmNyZWFzZWQgaW4gdGhlIHNwcmluZy4gQWZ0ZXIgZGlzY3Vzc2lvbiB3aXRoIERyIFBlbm55d2hpc3RsZSBpdCB3YXMgYWdyZWVkIHRvIHN0b3AgZ2xpcGl6aWRlIGNvbXBsZXRlbHkgcmF0aGVyIHRoYW4gcmVkdWNlIGl0LCBiZWNhdXNlIGhlciBIYkExYyBpcyBjb21mb3J0YWJseSB3aXRoaW4gdGhlIHJhbmdlIHdoZXJlIG1ldGZvcm1pbiBhbG9uZSBzaG91bGQgYmUgZW5vdWdoLgoKQWR2aWNlIGdpdmVuOiBzdG9wIGdsaXBpemlkZSBmcm9tIHRvbmlnaHQsIGtlZXAgdGFraW5nIG1ldGZvcm1pbiB3aXRoIG1lYWxzLCBjaGVjayBhIGZhc3RpbmcgcmVhZGluZyBlYWNoIG1vcm5pbmcgZm9yIHR3byB3ZWVrcyBhbmQgcGhvbmUgdGhlIHN1cmdlcnkgaWYgYW55IHJlYWRpbmcgaXMgYmVsb3cgNC4wIG9yIGFib3ZlIDEzLjAuIEEgcmVwZWF0IGJsb29kIHRlc3QgaXMgYm9va2VkIGZvciBTZXB0ZW1iZXIu"
+            }
+          }
+        ],
+        "meta": {
+          "tag": [
+            {
+              "system": "urn:example:tags",
+              "code": "synthetic"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DocumentReference/doc-ada-phone-2025-06"
+      }
+    }
+  ]
+}
